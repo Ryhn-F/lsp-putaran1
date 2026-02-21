@@ -20,14 +20,11 @@ class User extends Authenticatable
      * @var list<string>
      */
 
-    protected $casts = [
-        'role' => UserRole::class
-    ];
-
     protected $fillable = [
-        'name',
-        'email',
+        'username',
         'password',
+        'anggota_id',
+        'role'
     ];
 
     /**
@@ -40,16 +37,33 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+    
+    public function anggota(){
+
+        return $this->belongsTo(Anggota::class);
+    }
+
+    public function isAdmin(){
+
+        return $this->role === 'admin';
+    }
+
+
+    public function isSiswa(){
+
+        return $this->role === 'siswa';
+    }
+    
+
+
     /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
      */
 
-    // public function anggota(){
-
-    //     return $this->belongsTo(Anggota::class);
-    // }
+    
     protected function casts(): array
     {
         return [
