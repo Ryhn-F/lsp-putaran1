@@ -20,9 +20,6 @@ class User extends Authenticatable
      * @var list<string>
      */
 
-    protected $casts = [
-        'role' => UserRole::class
-    ];
 
     protected $fillable = [
         'name',
