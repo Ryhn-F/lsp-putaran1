@@ -22,9 +22,10 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'name',
-        'email',
+        'username',
         'password',
+        'anggota_id',
+        'role'
     ];
 
     /**
@@ -36,6 +37,19 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function anggota(){
+        return $this->belongsTo(Anggota::class);
+    }
+
+
+    public function isAdmin(){
+        return $this->role === 'admin';
+    }
+
+    public function isSiswa(){
+        return $this->role === 'siswa';
+    }
 
     /**
      * Get the attributes that should be cast.

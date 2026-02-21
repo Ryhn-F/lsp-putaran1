@@ -15,16 +15,10 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('username');
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            // $table->enum('role', array_column(UserRole::cases(),'value'))->default(UserRole::SISWA->value);
-            // $table->timestamps();
-
-            // $table->foreignId('anggota_id')
-            // ->nullable()
-            // ->constrained('anggotas')
-            // ->cascadeOnDelete()
-            // ->cascadeOnUpdate();
+            $table->enum('role',['admin','siswa'])->default('siswa');
+            $table->foreignId('anggota_id')->nullable()->constrained('anggotas')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->timestamps();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
