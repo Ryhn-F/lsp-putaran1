@@ -43,4 +43,41 @@ class SiswaController extends Controller
 
 
    }
+
+
+   public function returnShow(){
+
+      $user = Auth::user();
+
+      $anggota =  $user->anggota;
+
+
+      $orders = [];
+
+      if ($anggota){
+         $orders = Order::with('book')
+         ->where('anggota_id',$anggota->id)
+         ->whereNull('tanggal_kembali')->orderBy('tanggal_pinjam','desc')->get();
+      }
+
+      return view('siswa.return', compact('orders'));
+
+   }
+
+
+   public function returnProcess(string $id){
+      $order = Order::findOrFail($id);
+
+      $orderUpdate['tanggal_kembali'] = now();
+
+      $book = Book::findOrFail($order->book_id);
+
+      $book->increment('stock');
+
+      $order->update($orderUpdate);
+
+      return back()->with('success','telah berhasil mengembalikan buku');
+
+
+   }
 }

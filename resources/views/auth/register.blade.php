@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
+    <title>Register</title>
      @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div class="flex min-h-[100vh] flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="text-center sm:mx-auto sm:w-full sm:max-w-md">
             <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white">
-                Sign in
+                Register
             </h1>
         </div>
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -20,7 +20,7 @@
                 <form method="post" class="space-y-6">
                     @csrf  
                     <div>
-                        <label for="username" class="block text-sm font-medium text-gray-700 dark:text-white">Email address /
+                        <label for="username" class="block text-sm font-medium text-gray-700 dark:text-white">
                             Username</label>
                         <div class="mt-1">
                             <input name="username" id="username" type="text" 
@@ -37,7 +37,39 @@
                                 >
                         </div>
                     </div>
-                   
+                     <div>
+                        <label for="nis" class="block text-sm font-medium text-gray-700 dark:text-white">NIS</label>
+                        <div class="mt-1">
+                            <input name="nis"  type="text" 
+                                class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:placeholder-gray-300 dark:focus:border-indigo-400 dark:focus:ring-indigo-400 sm:text-sm"
+                                >
+                        </div>
+                    </div>
+                     <div>
+                        <label for="nama" class="block text-sm font-medium text-gray-700 dark:text-white">Nama Lengkap</label>
+                        <div class="mt-1">
+                            <input name="nama"  type="text" 
+                                class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:placeholder-gray-300 dark:focus:border-indigo-400 dark:focus:ring-indigo-400 sm:text-sm"
+                                >
+                        </div>
+                    </div>
+                     <div>
+                        <label for="kelas" class="block text-sm font-medium text-gray-700 dark:text-white">Kelas</label>
+                        <div class="mt-1">
+                            <input name="kelas"  type="text" 
+                                class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:placeholder-gray-300 dark:focus:border-indigo-400 dark:focus:ring-indigo-400 sm:text-sm"
+                                >
+                        </div>
+                    </div>
+                     <div>
+                        <label for="jurusan" class="block text-sm font-medium text-gray-700 dark:text-white">Jurusan</label>
+                        <div class="mt-1">
+                            <input name="jurusan"  type="text" 
+                                class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:placeholder-gray-300 dark:focus:border-indigo-400 dark:focus:ring-indigo-400 sm:text-sm"
+                                >
+                        </div>
+                    </div>
+                    
                     <div>
                         <button  type="submit"
                             class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-700 dark:border-transparent dark:hover:bg-indigo-600 dark:focus:ring-indigo-400 dark:focus:ring-offset-2 disabled:cursor-wait disabled:opacity-50">
@@ -50,14 +82,14 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                             </span>
-                            Sign In
+                            Sign Up
                         </button>
                     </div>
                 </form>
                 
                 <div class="m-auto mt-6 w-fit md:mt-8">
-                    <span class="m-auto dark:text-gray-400">Don't have an account?
-                        <a class="font-semibold text-indigo-600 dark:text-indigo-100" href="/register">Create Account</a>
+                    <span class="m-auto dark:text-gray-400">Already have an account?
+                        <a class="font-semibold text-indigo-600 dark:text-indigo-100" href="/login">Sign in</a>
                     </span>
                 </div>
             </div>

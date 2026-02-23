@@ -1,5 +1,7 @@
+@extends('admin.layouts')
 
 
+@section('content')
 <div>
 
     <form method="post">
@@ -33,3 +35,5 @@
         </button>
     </form>
 </div>
+
+@endsection
